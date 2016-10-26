@@ -1,0 +1,11 @@
+#!/bin/bash
+
+FIRST_ARGUMENT=$1
+
+TEMP=${FIRST_ARGUMENT/\\\\/smb:\/\/}
+OUTPUT_PATH=${TEMP//\\/\/}
+
+mkdir ~/winMount
+mount_smbfs $OUTPUT_PATH ~/winMount
+
+cd ~/winMount
